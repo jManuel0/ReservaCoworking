@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- =====================================================
+         SPRING BOOT PARENT
+         Hereda versiones compatibles de todas las dependencias.
+         Así no necesitamos especificar versiones manualmente.
+         ===================================================== -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.0</version>
+        <relativePath/>
+    </parent>
+
+    <!-- Coordenadas del proyecto -->
+    <groupId>com.coworking</groupId>
+    <artifactId>reservas-coworking</artifactId>
+    <version>1.0.0</version>
+    <name>reservas-coworking</name>
+    <description>Sistema de reservas para espacios de coworking - Proyecto educativo Spring Boot</description>
+
+    <properties>
+        <!-- Usamos Java 17 LTS -->
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- ==========================================
+             WEB: Incluye Spring MVC + Tomcat embebido.
+             Nos permite crear APIs REST con @RestController.
+             ========================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- ==========================================
+             DATA JPA: Integra Hibernate + Spring Data.
+             Nos permite usar @Entity y JpaRepository.
+             ========================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- ==========================================
+             VALIDATION: Anotaciones como @NotBlank, @Email.
+             Activa la validación automática con @Valid.
+             ========================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- ==========================================
+             H2: Base de datos en memoria / archivo.
+             Solo se usa en runtime y tests (no en producción).
+             ========================================== -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- ==========================================
+             TEST: JUnit 5 + Mockito + AssertJ.
+             Para escribir pruebas unitarias e integración.
+             ========================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin de Spring Boot: permite ejecutar con ./mvnw spring-boot:run -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
